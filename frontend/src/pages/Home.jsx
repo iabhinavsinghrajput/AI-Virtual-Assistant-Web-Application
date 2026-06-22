@@ -32,7 +32,6 @@ function Home() {
       navigate("/signin")
     } catch (error) {
       setUserData(null)
-      console.log(error)
     }
   }
 
@@ -41,7 +40,6 @@ function Home() {
    if (!isSpeakingRef.current && !isRecognizingRef.current) {
     try {
       recognitionRef.current?.start();
-      console.log("Recognition requested to start");
     } catch (error) {
       if (error.name !== "InvalidStateError") {
         console.error("Start error:", error);

@@ -28,12 +28,10 @@ function Customize2() {
         { withCredentials: true },
       );
       setLoading(false);
-      console.log(result.data);
       setUserData(result.data);
       navigate("/");
     } catch (error) {
       setLoading(false);
-      console.log(error);
     }
   };
 
