@@ -2,7 +2,7 @@ import axios from 'axios'
 import  { createContext, useEffect, useState } from 'react'
 export const userDataContext=createContext()
 function UserContext({children}) {
-    const serverUrl = "http://localhost:8000";
+    const serverUrl = "https://ai-virtual-assistant-web-application-2btb.onrender.com";
     const [userData,setUserData]=useState(null)
     const [loading,setLoading]=useState(true)
     const [frontendImage,setFrontendImage]=useState(null)
