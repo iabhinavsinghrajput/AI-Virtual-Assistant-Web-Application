@@ -25,7 +25,10 @@ function Customize2() {
       const result = await axios.post(
         `${serverUrl}/api/user/update`,
         formData,
-        { withCredentials: true },
+        { 
+          withCredentials: true,
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        },
       );
       setLoading(false);
       setUserData(result.data);

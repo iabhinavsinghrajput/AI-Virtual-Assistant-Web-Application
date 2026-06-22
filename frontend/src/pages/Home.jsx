@@ -29,6 +29,7 @@ function Home() {
     try {
       const result=await axios.get(`${serverUrl}/api/auth/logout`,{withCredentials:true})
       setUserData(null)
+      localStorage.removeItem("token")
       navigate("/signin")
     } catch (error) {
       setUserData(null)

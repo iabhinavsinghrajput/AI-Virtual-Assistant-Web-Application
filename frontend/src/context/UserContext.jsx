@@ -13,6 +13,7 @@ function UserContext({ children }) {
     try {
       const result = await axios.get(`${serverUrl}/api/user/current`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
       });
       setUserData(result.data);
     } catch (error) {
@@ -27,7 +28,10 @@ function UserContext({ children }) {
       const result = await axios.post(
         `${serverUrl}/api/user/asktoassistant`,
         { command },
-        { withCredentials: true },
+        { 
+          withCredentials: true,
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        },
       );
       // Update the history locally so it appears in the UI without a refresh
       setUserData((prev) => {
@@ -61,6 +65,7 @@ function UserContext({ children }) {
     try {
       await axios.delete(`${serverUrl}/api/user/history`, {
         withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
       });
       setUserData((prev) => (prev ? { ...prev, history: [] } : prev));
     } catch (error) {}

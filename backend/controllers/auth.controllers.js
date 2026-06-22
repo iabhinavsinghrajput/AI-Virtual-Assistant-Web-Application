@@ -27,7 +27,7 @@ export const signUp = async(req,res)=>{
             sameSite: "none", // Updated for cross-origin
             secure: true      // Updated to require HTTPS
         })
-        return res.status(201).json(user)
+        return res.status(201).json({ ...user._doc, token })
     }catch(error){
         return res.status(500).json({message:`Sign up error ${error}`})
     }
@@ -54,7 +54,7 @@ export const Login = async(req,res)=>{
             sameSite: "none", // Updated for cross-origin
             secure: true      // Updated to require HTTPS
         })
-        return res.status(200).json(user)
+        return res.status(200).json({ ...user._doc, token })
     }catch(error){
         return res.status(500).json({message:`Login error ${error}`})
     }
