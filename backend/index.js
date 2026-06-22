@@ -12,15 +12,28 @@ import geminiResponse from "./gemini.js"
 const app = express()
 app.use(cors({
     origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, postman, or curl)
         if (!origin) return callback(null, true);
-        if (/^http:\/\/localhost(:\d+)?$/.test(origin) || /^http:\/\/127\.0\.0\.1(:\d+)?$/.test(origin)) {
+        
+        // Define all allowed frontend URLs
+        const allowedOrigins = [
+            'https://ai-virtual-assistant-web-application-1.onrender.com', // Your production frontend
+            'http://localhost:5173', // Typical Vite localhost port
+            'http://localhost:3000', // Typical CRA localhost port
+            'http://127.0.0.1:5173',
+            'http://127.0.0.1:3000'
+        ];
+
+        // Check if the incoming request origin is in our allowed list
+        if (allowedOrigins.includes(origin)) {
             return callback(null, true);
         }
-        return callback(new Error('Not allowed by CORS'));
         
+        // If it's not in the list, block it
+        return callback(new Error('Not allowed by CORS'));
     },
     credentials: true
-}))
+}));
 
 const port = process.env.PORT || 5000
 
