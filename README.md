@@ -4,7 +4,7 @@ A full-stack web application featuring an AI virtual assistant. The project is b
 
 ## Live Demo
 
-*Add your live demo link here:* [Live Demo](https://your-live-demo-link.com)
+*Add your live demo link here:* [Live Demo](https://ai-virtual-assistant-web-application-1.onrender.com/)
 
 ## Tech Stack
 
