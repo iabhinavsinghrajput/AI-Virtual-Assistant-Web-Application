@@ -2,9 +2,7 @@
 
 A full-stack web application featuring an AI virtual assistant. The project is built with a modern tech stack utilizing React for the frontend and Node.js/Express for the backend. It integrates with Google's Gemini API for AI capabilities and Cloudinary for media management.
 
-## Live Demo
 
-*Add your live demo link here:* [Live Demo](https://ai-virtual-assistant-web-application-1.onrender.com/)
 
 ## Tech Stack
 
