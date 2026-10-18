@@ -84,3 +84,5 @@ virtualAssistant/
 
 ## Usage
 Once both servers are running, open your browser and navigate to the frontend URL (usually `http://localhost:5173`) to interact with the AI Virtual Assistant.
+
+https://ai-virtual-assistant-web-application-1.onrender.com/
