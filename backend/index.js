@@ -43,7 +43,12 @@ app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
 
 
-app.listen(port,()=>{
-    connectDB()
-    console.log("server started")
+connectDB()
+.then(() => {
+    app.listen(port,()=>{
+        console.log(`Server started on port ${port}`)
+    })
+})
+.catch((err) => {
+    console.log("Server failed to start because of DB error", err)
 })
